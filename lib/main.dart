@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.light,
       theme: StarTheme.lightTheme,
       darkTheme: StarTheme.darkTheme,
-      home: const Dashboard(),
+      home: const LoginScreen(),
     );
   }
 }

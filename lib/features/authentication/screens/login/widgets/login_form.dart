@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:stardust_store/features/dashboard/dashboard.dart';
+import 'package:stardust_store/features/wrapper/screens/wrapper_page.dart';
 import 'package:stardust_store/utils/constants/sizes.dart';
 import 'package:stardust_store/utils/constants/text_strings.dart';
 
@@ -47,7 +48,7 @@ class LoginForm extends StatelessWidget {
           // Login Button with Obx (Reactive State Management)
           Center(
             child: ElevatedButton(
-              onPressed: () => Get.to(() => const Dashboard()),
+              onPressed: () => Get.to(() => const WrapperPage()),
               style: ElevatedButton.styleFrom(
                 fixedSize: const Size.fromWidth(StarSizes.loginButtonWidth),
                 padding: const EdgeInsets.symmetric(
