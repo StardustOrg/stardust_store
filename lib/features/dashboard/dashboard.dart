@@ -1,12 +1,20 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:stardust_store/common/widgets/dashboard/bar_chart.dart';
 import 'package:stardust_store/common/widgets/dashboard/card_item.dart';
 import 'package:stardust_store/utils/constants/colors.dart';
 import 'package:stardust_store/utils/constants/image_string.dart';
 import 'package:stardust_store/utils/constants/text_strings.dart';
 
 class Dashboard extends StatelessWidget {
-  const Dashboard({super.key});
+  Dashboard({super.key});
+  final List<Map<String, dynamic>> data = List.generate(28, (index) {
+    return {
+      'day': index + 1,
+      'value': Random().nextInt(500) + 100,
+    };
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -94,6 +102,34 @@ class Dashboard extends StatelessWidget {
                   child: Image.asset(
                     StarImages.slidesDetails2,
                     width: 100,
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 50),
+            Row(
+              children: [
+                Expanded(
+                  flex: 3,
+                  child: AdaptiveChart(
+                    periodType: "day",
+                    data: data,
+                    barColor: StarColors.starPink,
+                    chartType: "line",
+                  ),
+                ),
+                const Expanded(
+                  child: AdaptiveChart(
+                    periodType: "week",
+                    data: [
+                      {'day': 1, 'value': 100},
+                      {'day': 2, 'value': 200},
+                      {'day': 3, 'value': 300},
+                      {'day': 4, 'value': 400},
+                      {'day': 5, 'value': 500},
+                      {'day': 6, 'value': 600},
+                      {'day': 7, 'value': 700},
+                    ],
                   ),
                 ),
               ],
