@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:stardust_store/features/dashboard/dashboard.dart';
+import 'package:stardust_store/features/wrapper/screens/wrapper_page.dart';
 import 'package:stardust_store/utils/theme/theme.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:stardust_store/features/authentication/screens/login/login.dart';
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
       themeMode: ThemeMode.light,
       theme: StarTheme.lightTheme,
       darkTheme: StarTheme.darkTheme,
-      home: const LoginScreen(),
+      home: const WrapperPage(),
     );
   }
 }

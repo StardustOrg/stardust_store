@@ -117,9 +117,12 @@ class _WrapperPageState extends State<WrapperPage> {
             ),
           ),
           Expanded(
-            child: IndexedStack(
-              index: _selectedIndex,
-              children: _pages,
+            child: Container(
+              color: Colors.white,
+              child: IndexedStack(
+                index: _selectedIndex,
+                children: _pages,
+              ),
             ),
           ),
         ],
@@ -170,9 +173,11 @@ class _SidebarMenuItemState extends State<SidebarMenuItem> {
           padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8.0),
-            color: isHovered
-                ? StarColors.starBlue.withOpacity(0.05)
-                : Colors.transparent,
+            color: widget.selected
+                ? StarColors.starPink.withOpacity(0.05)
+                : isHovered
+                    ? StarColors.starBlue.withOpacity(0.05)
+                    : Colors.transparent,
           ),
           child: Padding(
             padding: EdgeInsets.only(
