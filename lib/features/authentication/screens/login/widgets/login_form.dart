@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:stardust_store/features/dashboard/dashboard.dart';
 import 'package:stardust_store/utils/constants/sizes.dart';
 import 'package:stardust_store/utils/constants/text_strings.dart';
 
@@ -17,7 +18,6 @@ class LoginForm extends StatelessWidget {
             style: Theme.of(context).textTheme.headlineMedium,
           ),
           const SizedBox(height: StarSizes.spaceBtwItems),
-
           // Email Field
           TextFormField(
             decoration: const InputDecoration(
@@ -26,7 +26,6 @@ class LoginForm extends StatelessWidget {
             ),
           ),
           const SizedBox(height: StarSizes.spaceBtwItems),
-
           // Password Field
           TextFormField(
             obscureText: true,
@@ -35,8 +34,7 @@ class LoginForm extends StatelessWidget {
               hintText: StarTexts.passwordLabel,
             ),
           ),
-          const SizedBox(height: 15),
-
+          const SizedBox(height: StarSizes.spaceBtwItems),
           // Forgot Password
           Align(
             alignment: Alignment.centerRight,
@@ -45,21 +43,21 @@ class LoginForm extends StatelessWidget {
               child: const Text(StarTexts.forgotPassword),
             ),
           ),
-          const SizedBox(height: 10),
+          const SizedBox(height: StarSizes.spaceBtwItems),
           // Login Button with Obx (Reactive State Management)
           Center(
             child: ElevatedButton(
-              onPressed: () => {},
+              onPressed: () => Get.to(() => const Dashboard()),
               style: ElevatedButton.styleFrom(
-                fixedSize: const Size.fromWidth(500),
-                padding: const EdgeInsets.symmetric(vertical: 15),
+                fixedSize: const Size.fromWidth(StarSizes.loginButtonWidth),
+                padding: const EdgeInsets.symmetric(
+                    vertical: StarSizes.buttonPadding),
               ),
               child: const Text(StarTexts.login),
             ),
           ),
 
-          const SizedBox(height: 10), // Add space between elements
-
+          const SizedBox(height: StarSizes.spaceBtwItems),
           // Signup Option (Optional)
           Align(
             alignment: Alignment.center,

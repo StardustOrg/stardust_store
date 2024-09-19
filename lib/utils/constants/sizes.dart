@@ -30,6 +30,9 @@ class StarSizes {
 
   // Button Sizes
   static const double buttonHeight = 16.0;
+  static const double buttonWidth = 100.0;
+  static const double loginButtonWidth = 250.0;
+  static const double buttonPadding = 18.0;
 
   // AppBar Sizes
 
@@ -41,6 +44,10 @@ class StarSizes {
   static const double logoSm = 50.0;
   static const double logoMd = 100.0;
   static const double logoLg = 135.0;
+  static const double logoXl = 200.0;
+  static const double logoXXl = 250.0;
+  static const double logoXXXl = 300.0;
+  static const double logoXXXXl = 400.0;
 
   // Default Spacing Between Sections
   static const double defaultSpace = 25.0;
@@ -59,6 +66,9 @@ class StarSizes {
   // Divider Height
 
   // Input Field
+  static const double inputFieldHeight = 50.0;
+  static const double inputFieldWidth = double.infinity;
+  static const double inputFormWidth = 400.0;
 
   // Card Sizes
 

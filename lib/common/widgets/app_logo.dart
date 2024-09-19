@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:stardust_store/utils/constants/image_string.dart';
-import 'package:stardust_store/utils/device/device_utility.dart';
+import 'package:stardust_store/utils/constants/sizes.dart';
 
 class StarLogo extends StatelessWidget {
   const StarLogo({
@@ -16,7 +16,7 @@ class StarLogo extends StatelessWidget {
           SvgPicture.asset(
             StarImages.logo,
             semanticsLabel: 'brand logo',
-            width: StarDeviceUtils.getScreenWidth(context) * 0.15,
+            width: StarSizes.logoXXl,
           ),
         ],
       ),

@@ -31,4 +31,7 @@ class StarImages {
   static const String favoritesSvg = 'assets/icons/heart.svg';
   static const String messagesSvg = 'assets/icons/chat.svg';
   static const String profileSvg = 'assets/icons/profile.svg';
+
+  // Backgrounds
+  static const String background = 'assets/images/background.png';
 }

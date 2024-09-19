@@ -17,7 +17,10 @@ class DifferentWaysToLogin extends StatelessWidget {
         OutlinedButton(
           onPressed: () => {},
           style: ElevatedButton.styleFrom(
-            minimumSize: const Size(200, 0),
+            fixedSize: const Size(
+              StarSizes.loginButtonWidth,
+              StarSizes.buttonHeight,
+            ),
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -37,7 +40,10 @@ class DifferentWaysToLogin extends StatelessWidget {
         OutlinedButton(
           onPressed: () => {},
           style: ElevatedButton.styleFrom(
-            minimumSize: const Size(200, 0),
+            fixedSize: const Size(
+              StarSizes.loginButtonWidth,
+              StarSizes.buttonHeight,
+            ),
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
