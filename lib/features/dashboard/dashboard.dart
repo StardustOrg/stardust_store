@@ -43,7 +43,7 @@ class Dashboard extends StatelessWidget {
                 ),
               ],
             ),
-            const SizedBox(height: 50),
+            const SizedBox(height: 60),
             Stack(
               clipBehavior: Clip.none,
               children: [
@@ -99,7 +99,7 @@ class Dashboard extends StatelessWidget {
                   ),
                 ),
                 Positioned(
-                  right: 0,
+                  right: 5,
                   bottom: -10,
                   child: Image.asset(
                     StarImages.slidesDetails2,

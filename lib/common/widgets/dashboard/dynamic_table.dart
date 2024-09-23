@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
 import 'package:stardust_store/utils/constants/colors.dart';
+import 'package:stardust_store/utils/constants/image_string.dart';
 
 class DynamicDataTable extends StatefulWidget {
   final List<String> columns; // Títulos das colunas
@@ -23,31 +25,50 @@ class _DynamicDataTableState extends State<DynamicDataTable> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      padding: const EdgeInsets.only(top: 10),
       scrollDirection: Axis.horizontal,
-      child: Container(
-        decoration: BoxDecoration(
-          border: Border.all(color: StarColors.starPink.withOpacity(0.1)),
-          borderRadius: BorderRadius.circular(8),
-        ),
-        width:
-            MediaQuery.of(context).size.width * 0.77, // 80% da largura da tela
-        child: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: DataTable(
-            columnSpacing: 30, // Ajusta o espaçamento entre as colunas
-            sortColumnIndex: _sortColumnIndex,
-            sortAscending: _isAscending,
-            headingRowColor: MaterialStateProperty.resolveWith<Color?>(
-              (Set<MaterialState> states) {
-                return StarColors.starPink
-                    .withOpacity(0.1); // Cor para a linha do cabeçalho
-              },
+      child: Stack(clipBehavior: Clip.antiAlias, children: [
+        Padding(
+          padding: const EdgeInsets.only(top: 10.0),
+          child: Container(
+            decoration: BoxDecoration(
+              color: StarColors.bgLight,
+              border: Border.all(
+                color: StarColors.grey,
+                width: 1.0,
+              ),
+              borderRadius: BorderRadius.circular(10),
             ),
-            columns: _buildDataColumns(),
-            rows: _buildDataRows(),
+            width: MediaQuery.of(context).size.width *
+                0.77, // 80% da largura da tela
+            child: SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: DataTable(
+                columnSpacing: 30, // Ajusta o espaçamento entre as colunas
+                sortColumnIndex: _sortColumnIndex,
+                sortAscending: _isAscending,
+                headingRowColor: MaterialStateProperty.resolveWith<Color?>(
+                  (Set<MaterialState> states) {
+                    return StarColors.bgLight
+                        .withOpacity(0.1); // Cor para a linha do cabeçalho
+                  },
+                ),
+                columns: _buildDataColumns(),
+                rows: _buildDataRows(),
+              ),
+            ),
           ),
         ),
-      ),
+        Positioned(
+          top: 0,
+          right: 8,
+          child: SvgPicture.asset(
+            'assets/details/falling_sparkles.svg',
+            width: 40,
+          ),
+        ),
+      ]),
+    ]
     );
   }
 
