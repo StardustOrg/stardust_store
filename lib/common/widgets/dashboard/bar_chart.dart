@@ -19,6 +19,14 @@ class AdaptiveChart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      decoration: BoxDecoration(
+        color: StarColors.bgLight,
+        borderRadius: const BorderRadius.all(Radius.circular(16.0)),
+        border: Border.all(
+          color: StarColors.grey,
+          width: 1.0,
+        ),
+      ),
       width: double.infinity,
       height: 300,
       padding: const EdgeInsets.all(16),
@@ -33,8 +41,16 @@ class AdaptiveChart extends StatelessWidget {
         alignment: BarChartAlignment.spaceAround,
         barGroups: _generateBarGroups(),
         borderData: FlBorderData(
+          show: false,
+        ),
+        gridData: FlGridData(
           show: true,
-          border: Border.all(color: Colors.black, width: 1),
+          drawVerticalLine: false,
+          drawHorizontalLine: true,
+          getDrawingHorizontalLine: (value) => const FlLine(
+            color: StarColors.grey,
+            strokeWidth: 0.5,
+          ),
         ),
         titlesData: FlTitlesData(
           leftTitles: const AxisTitles(
@@ -76,8 +92,16 @@ class AdaptiveChart extends StatelessWidget {
     return LineChart(
       LineChartData(
         borderData: FlBorderData(
+          show: false,
+        ),
+        gridData: FlGridData(
           show: true,
-          border: Border.all(color: Colors.black, width: 1),
+          drawVerticalLine: false,
+          drawHorizontalLine: true,
+          getDrawingHorizontalLine: (value) => const FlLine(
+            color: StarColors.grey,
+            strokeWidth: 0.5,
+          ),
         ),
         titlesData: FlTitlesData(
           leftTitles: const AxisTitles(

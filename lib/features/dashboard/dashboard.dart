@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:stardust_store/common/widgets/dashboard/bar_chart.dart';
 import 'package:stardust_store/common/widgets/dashboard/card_item.dart';
+import 'package:stardust_store/common/widgets/dashboard/dynamic_table.dart';
 import 'package:stardust_store/utils/constants/colors.dart';
 import 'package:stardust_store/utils/constants/image_string.dart';
 import 'package:stardust_store/utils/constants/text_strings.dart';
@@ -21,7 +22,8 @@ class Dashboard extends StatelessWidget {
     final Color starBlueWithOpacity = StarColors.starBlue.withOpacity(0.5);
 
     return Padding(
-        padding: const EdgeInsets.only(left: 50, top: 50, right: 50),
+      padding: const EdgeInsets.only(left: 50, top: 50, right: 50),
+      child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -56,7 +58,7 @@ class Dashboard extends StatelessWidget {
                 Container(
                   height: 150,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: StarColors.bgLight,
                     borderRadius: const BorderRadius.all(Radius.circular(16.0)),
                     border: Border.all(
                       color: StarColors.grey,
@@ -97,7 +99,7 @@ class Dashboard extends StatelessWidget {
                   ),
                 ),
                 Positioned(
-                  right: -10,
+                  right: 0,
                   bottom: -10,
                   child: Image.asset(
                     StarImages.slidesDetails2,
@@ -111,30 +113,84 @@ class Dashboard extends StatelessWidget {
               children: [
                 Expanded(
                   flex: 3,
-                  child: AdaptiveChart(
-                    periodType: "day",
-                    data: data,
-                    barColor: StarColors.starPink,
-                    chartType: "line",
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Vendas do mês',
+                        style: Theme.of(context)
+                            .textTheme
+                            .headlineMedium
+                            ?.copyWith(
+                              fontWeight: FontWeight.bold,
+                            ),
+                      ),
+                      const SizedBox(height: 10),
+                      AdaptiveChart(
+                        periodType: "day",
+                        data: data,
+                        barColor: StarColors.starPink,
+                        chartType: "line",
+                      ),
+                    ],
                   ),
                 ),
-                const Expanded(
-                  child: AdaptiveChart(
-                    periodType: "week",
-                    data: [
-                      {'day': 1, 'value': 100},
-                      {'day': 2, 'value': 200},
-                      {'day': 3, 'value': 300},
-                      {'day': 4, 'value': 400},
-                      {'day': 5, 'value': 500},
-                      {'day': 6, 'value': 600},
-                      {'day': 7, 'value': 700},
+                const SizedBox(width: 20),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Vendas da semana',
+                        style: Theme.of(context)
+                            .textTheme
+                            .headlineMedium
+                            ?.copyWith(
+                              fontWeight: FontWeight.bold,
+                            ),
+                      ),
+                      const SizedBox(height: 10),
+                      const AdaptiveChart(
+                        periodType: "week",
+                        data: [
+                          {'day': 1, 'value': 100},
+                          {'day': 2, 'value': 200},
+                          {'day': 3, 'value': 300},
+                          {'day': 4, 'value': 400},
+                          {'day': 5, 'value': 500},
+                          {'day': 6, 'value': 600},
+                          {'day': 7, 'value': 700},
+                        ],
+                      ),
                     ],
                   ),
                 ),
               ],
-            )
+            ),
+            const SizedBox(height: 50),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Últimas Vendas',
+                  style: Theme.of(context).textTheme.headlineMedium?.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
+                ),
+                const SizedBox(height: 10),
+                const DynamicDataTable(
+                  columns: ['Photocard(s)', 'Preço', 'Cliente', 'Data'],
+                  rows: [
+                    ['Hanni Season’s', '\$10.00', 'Alice', '2023-10-01'],
+                    ['Danielle Season’s', '\$15.00', 'Bob', '2023-10-02'],
+                    ['Minji Season’s', '\$20.00', 'Charlie', '2023-10-03'],
+                  ],
+                ),
+              ],
+            ),
           ],
-        ));
+        ),
+      ),
+    );
   }
 }

@@ -40,7 +40,7 @@ class _WrapperPageState extends State<WrapperPage> {
           Material(
             child: Container(
               decoration: const BoxDecoration(
-                color: Colors.white,
+                color: StarColors.bgLight,
                 borderRadius: BorderRadius.only(
                   topRight: Radius.circular(16.0),
                   bottomRight: Radius.circular(16.0),
@@ -118,7 +118,7 @@ class _WrapperPageState extends State<WrapperPage> {
           ),
           Expanded(
             child: Container(
-              color: Colors.white,
+              color: StarColors.bgLight,
               child: IndexedStack(
                 index: _selectedIndex,
                 children: _pages,
