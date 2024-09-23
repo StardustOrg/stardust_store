@@ -31,14 +31,14 @@ class _DynamicDataTableState extends State<DynamicDataTable> {
         Padding(
           padding: const EdgeInsets.only(top: 10.0),
           child: Container(
-            decoration: BoxDecoration(
-              color: StarColors.bgLight,
-              border: Border.all(
-                color: StarColors.grey,
-                width: 1.0,
-              ),
-              borderRadius: BorderRadius.circular(10),
-            ),
+            // decoration: BoxDecoration(
+            //   color: StarColors.bgLight,
+            //   border: Border.all(
+            //     color: StarColors.grey,
+            //     width: 1.0,
+            //   ),
+            //   borderRadius: BorderRadius.circular(10),
+            // ),
             width: MediaQuery.of(context).size.width *
                 0.77, // 80% da largura da tela
             child: SingleChildScrollView(
@@ -59,16 +59,15 @@ class _DynamicDataTableState extends State<DynamicDataTable> {
             ),
           ),
         ),
-        Positioned(
-          top: 0,
-          right: 8,
-          child: SvgPicture.asset(
-            'assets/details/falling_sparkles.svg',
-            width: 40,
-          ),
-        ),
+        // Positioned(
+        //   top: 0,
+        //   right: 8,
+        //   child: SvgPicture.asset(
+        //     'assets/details/falling_sparkles.svg',
+        //     width: 40,
+        //   ),
+        // ),
       ]),
-    ]
     );
   }
 
