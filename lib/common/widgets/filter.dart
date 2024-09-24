@@ -35,7 +35,7 @@ class _FilterWidgetState extends State<FilterWidget> {
         decoration: BoxDecoration(
           color: StarColors.bgLight,
           borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: StarColors.bgLight),
+          border: Border.all(color: StarColors.grey.withOpacity(0.5)),
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,

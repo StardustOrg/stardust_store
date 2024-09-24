@@ -53,20 +53,20 @@ class Sells extends StatelessWidget {
                     children: [
                       Expanded(
                         child: CardItem(
-                          title: 'Valor vendido',
-                          value: '\$120,234', // Exemplo de valor
+                          title: 'Vendas de hoje',
+                          value: '\$120,34', // Exemplo de valor
                         ),
                       ),
                       Expanded(
                         child: CardItem(
-                          title: 'Número de vendas',
-                          value: '20', // Exemplo de valor
+                          title: 'Vendas da semana',
+                          value: '\$1200,24', // Exemplo de valor
                         ),
                       ),
                       Expanded(
                         child: CardItem(
-                          title: 'Unidades vendidas',
-                          value: '32',
+                          title: 'Vendas do mês',
+                          value: '\$1020,34',
                           isLast: true,
                         ),
                       ),
@@ -94,47 +94,28 @@ class Sells extends StatelessWidget {
             const SizedBox(
               height: 60,
             ),
-            // const SizedBox(
-            //   width: double.infinity,
-            //   child: TextField(
-            //     decoration: InputDecoration(
-            //       hintText: 'Pesquisar',
-            //       prefixIcon: Icon(Icons.search, color: StarColors.starPink),
-            //       border: OutlineInputBorder(
-            //         borderRadius: BorderRadius.all(Radius.circular(8.0)),
-            //         borderSide: BorderSide(color: StarColors.starPink),
-            //       ),
-            //       focusedBorder: OutlineInputBorder(
-            //         borderRadius: BorderRadius.all(Radius.circular(8.0)),
-            //         borderSide: BorderSide(color: StarColors.starPink),
-            //       ),
-            //     ),
-            //   ),
-            // ),
-            // const SizedBox(
-            //   height: 20,
-            // ),
-            const Row(
-              children: [
-                Expanded(
-                  flex: 2,
-                  child: TextField(
-                    decoration: InputDecoration(
-                      hintText: 'Pesquisar',
-                      prefixIcon:
-                          Icon(Icons.search, color: StarColors.starPink),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(8.0)),
-                        borderSide: BorderSide(color: StarColors.starPink),
-                      ),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(8.0)),
-                        borderSide: BorderSide(color: StarColors.starPink),
-                      ),
-                    ),
+            const SizedBox(
+              width: double.infinity,
+              child: TextField(
+                decoration: InputDecoration(
+                  hintText: 'Pesquisar',
+                  prefixIcon: Icon(Icons.search, color: StarColors.starPink),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                    borderSide: BorderSide(color: StarColors.starPink),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                    borderSide: BorderSide(color: StarColors.starPink),
                   ),
                 ),
-                SizedBox(width: 10),
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            const Row(
+              children: [
                 Expanded(
                   child: FilterWidget(
                     filterName: 'Artista',
