@@ -1,16 +1,99 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 import 'package:stardust_store/common/widgets/dashboard/card_item.dart';
 import 'package:stardust_store/common/widgets/dashboard/dynamic_table.dart';
 import 'package:stardust_store/common/widgets/filter.dart';
 import 'package:stardust_store/common/widgets/photocard_store/photocard.dart';
+import 'package:stardust_store/common/widgets/photocard_store/photocard_grid.dart';
+import 'package:stardust_store/common/widgets/photocard_store/photocard_modal.dart';
 import 'package:stardust_store/utils/constants/colors.dart';
 import 'package:stardust_store/utils/constants/image_string.dart';
 import 'package:stardust_store/utils/constants/sizes.dart';
 
+void openPhotocardModal(
+    {bool isEditing = false, Map<String, dynamic>? photocardData}) {
+  showDialog(
+    context: Get.context!,
+    builder: (BuildContext context) {
+      return PhotocardModal(
+        isEditing: isEditing,
+        photocardData: photocardData,
+      );
+    },
+  );
+}
+
+final List<Map<String, dynamic>> photocardData = [
+  {
+    'imageUrl': 'assets/images/photocard.png',
+    'artistName': 'JV',
+    'pcName': 'JV in Korea',
+    'id': '1',
+    'price': 29.99,
+    'unities': 3,
+  },
+  {
+    'imageUrl': 'assets/images/photocard2.png',
+    'artistName': 'Jayce',
+    'pcName': 'AC/JC Season\'s',
+    'id': '2',
+    'price': 34.99,
+    'unities': 5,
+  },
+  {
+    'imageUrl': 'assets/images/photocard.png',
+    'artistName': 'JV',
+    'pcName': 'JV in Korea',
+    'id': '1',
+    'price': 29.99,
+    'unities': 3,
+  },
+  {
+    'imageUrl': 'assets/images/photocard2.png',
+    'artistName': 'Jayce',
+    'pcName': 'AC/JC Season\'s',
+    'id': '2',
+    'price': 34.99,
+    'unities': 5,
+  },
+  {
+    'imageUrl': 'assets/images/photocard.png',
+    'artistName': 'JV',
+    'pcName': 'JV in Korea',
+    'id': '1',
+    'price': 29.99,
+    'unities': 3,
+  },
+  {
+    'imageUrl': 'assets/images/photocard2.png',
+    'artistName': 'Jayce',
+    'pcName': 'AC/JC Season\'s',
+    'id': '2',
+    'price': 34.99,
+    'unities': 5,
+  },
+  {
+    'imageUrl': 'assets/images/photocard.png',
+    'artistName': 'JV',
+    'pcName': 'JV in Korea',
+    'id': '1',
+    'price': 29.99,
+    'unities': 3,
+  },
+  {
+    'imageUrl': 'assets/images/photocard2.png',
+    'artistName': 'Jayce',
+    'pcName': 'AC/JC Season\'s',
+    'id': '2',
+    'price': 34.99,
+    'unities': 5,
+  },
+];
+
 class Products extends StatelessWidget {
-  const Products({super.key});
+  Products({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -163,7 +246,7 @@ class Products extends StatelessWidget {
                           height: 52,
                           child: ElevatedButton(
                             onPressed: () {
-                              // Adicione a ação do botão aqui
+                              openPhotocardModal();
                             },
                             style: ElevatedButton.styleFrom(
                               shape: RoundedRectangleBorder(
@@ -310,14 +393,7 @@ class Products extends StatelessWidget {
             const SizedBox(
               height: 60,
             ),
-            const Photocard(
-                borderColor: StarColors.starPink,
-                size: 220,
-                imageUrl: 'assets/images/photocard.png',
-                artistName: 'João Victor',
-                pcName: 'JV In Korea',
-                id: '0',
-                price: 125.8),
+            PhotocardGrid(photocards: photocardData)
           ],
         )),
       ),

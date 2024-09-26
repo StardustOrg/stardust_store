@@ -1,7 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:stardust_store/common/widgets/images/photocard_image.dart';
+import 'package:stardust_store/common/widgets/photocard_store/photocard_modal.dart';
 import 'package:stardust_store/utils/constants/colors.dart';
 import 'package:stardust_store/utils/constants/sizes.dart';
+
+void openPhotocardModal(
+    {bool isEditing = false, Map<String, dynamic>? photocardData}) {
+  showDialog(
+    context: Get.context!,
+    builder: (BuildContext context) {
+      return PhotocardModal(
+        isEditing: isEditing,
+        photocardData: photocardData,
+      );
+    },
+  );
+}
 
 class Photocard extends StatelessWidget {
   const Photocard({
@@ -43,7 +58,14 @@ class Photocard extends StatelessWidget {
                 right: 8,
                 child: ElevatedButton(
                   onPressed: () {
-                    // Adicione a ação do botão de edição aqui
+                    openPhotocardModal(isEditing: true, photocardData: {
+                      'id': id,
+                      'artistName': artistName,
+                      'pcName': pcName,
+                      'imageUrl': imageUrl,
+                      'price': price,
+                      'unities': unities,
+                    });
                   },
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
@@ -125,7 +147,7 @@ class Photocard extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8.0),
-                        side: const BorderSide(color: StarColors.starBlue),
+                        side: const BorderSide(color: StarColors.grey),
                       ),
                       padding: const EdgeInsets.symmetric(
                           vertical: 4, horizontal: 10),
@@ -137,14 +159,14 @@ class Photocard extends StatelessWidget {
                         Text(
                           'Adicionar',
                           style: TextStyle(
-                              color: StarColors.starBlue,
+                              color: StarColors.grey,
                               fontSize: StarSizes.fontSizeXs,
                               fontWeight: FontWeight.bold),
                         ),
                         SizedBox(width: 5),
                         Icon(
                           Icons.add_circle_outline_rounded,
-                          color: StarColors.starBlue,
+                          color: StarColors.grey,
                           size: StarSizes.fontSizeMd,
                         ),
                       ],
@@ -160,7 +182,7 @@ class Photocard extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8.0),
-                        side: const BorderSide(color: StarColors.starBlue),
+                        side: const BorderSide(color: StarColors.grey),
                       ),
                       padding: const EdgeInsets.symmetric(
                           vertical: 4, horizontal: 10),
@@ -172,14 +194,14 @@ class Photocard extends StatelessWidget {
                         Text(
                           'Impulsionar',
                           style: TextStyle(
-                              color: StarColors.starBlue,
+                              color: StarColors.grey,
                               fontSize: StarSizes.fontSizeXs,
                               fontWeight: FontWeight.bold),
                         ),
                         SizedBox(width: 5),
                         Icon(
                           Icons.arrow_circle_up_rounded,
-                          color: StarColors.starBlue,
+                          color: StarColors.grey,
                           size: StarSizes.fontSizeMd,
                         ),
                       ],
